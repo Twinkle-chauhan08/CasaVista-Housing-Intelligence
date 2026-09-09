@@ -1,107 +1,236 @@
-🏠 CasaVista Housing Intelligence
+# 🏠 CasaVista Housing Intelligence
 
-An interactive California Housing statistical modeling dashboard built with Python, Streamlit, Statsmodels, Pandas, SciPy, and Plotly.
 
-✨ Features
+## 📌 Project Overview
 
-📊 Data Exploration — filters, data preview, charts, and statistical summary
+**CasaVista Housing Intelligence** is an interactive statistical modeling dashboard developed for analyzing the California Housing Prices dataset.
 
-🧪 Statistical Lab — two-group hypothesis testing and One-Way ANOVA
+The project combines **data exploration, statistical hypothesis testing, multiple linear regression, live prediction, and model diagnostics** into a single interactive Streamlit web application.
 
-📈 OLS Regression — coefficients, p-values, confidence intervals, R², and adjusted R²
+The dashboard is designed to make statistical analysis easier to understand through interactive filters, visualizations, statistical results, and real-time predictions.
 
-🏠 Live Property Prediction — predicted median house value with a 95% prediction interval
+---
 
-🔍 Model Diagnostics — residual plot, Q-Q plot, Jarque-Bera test, and VIF
+## 🎯 Project Objectives
 
-📂 Project Structure
+The main objectives of this project are:
 
-CasaVista Housing Project/
+- To explore and understand California housing data.
+- To perform statistical hypothesis testing.
+- To analyze differences in housing values across different locations.
+- To build a Multiple Linear Regression model using OLS.
+- To interpret regression coefficients, p-values, confidence intervals, and R².
+- To evaluate regression assumptions using diagnostic tests.
+- To provide an interactive web dashboard using Streamlit.
+- To generate live house-value predictions based on user-provided property characteristics.
 
-├── app.py
+---
 
-├── requirements.txt
+## ✨ Dashboard Features
 
-├── README.md
+### 📊 1. Data Exploration
 
-└── Data/
-    └── housing.csv
+The Data Exploration section provides an interactive overview of the dataset.
 
-📌 Dataset
+It includes:
 
-Dataset: California Housing Prices
+- 🔎 Interactive filters for housing age and median income.
+- 🌊 Filtering by ocean-proximity categories.
+- 📋 Dataset preview.
+- 💰 Median house value distribution.
+- 📈 Median income vs house value visualization.
+- 📦 House value comparison across locations.
+- 📊 Descriptive statistical summary.
+- Mean, standard deviation, median, quartiles, IQR, skewness, and kurtosis.
 
-Target variable: median_house_value
+---
 
-Categorical variable: ocean_proximity
+### 🧪 2. Statistical Laboratory
 
-OLS predictors
+The Statistical Lab is used to investigate whether differences between housing groups are statistically significant.
 
-median_income, housing_median_age, total_rooms, total_bedrooms, population, households, latitude, longitude
+#### Hypothesis Test 1 — Two-Group Comparison
 
-🧪 Hypothesis Testing
+The dashboard compares a selected numerical variable between two selected ocean-proximity groups.
+
+The default comparison is:
+
+**`<1H OCEAN` vs `INLAND`**
+
+The hypotheses are:
+
+**H₀:** There is no significant difference between the two groups.
+
+**H₁:** There is a significant difference between the two groups.
+
+The dashboard performs assumption checks and automatically selects an appropriate two-group test.
+
+#### Hypothesis Test 2 — One-Way ANOVA
+
+One-Way ANOVA is used to determine whether mean house values differ across the different ocean-proximity categories.
+
+The hypotheses are:
+
+**H₀:** All groups have the same mean.
+
+**H₁:** At least one group has a different mean.
+
+### Significance Level
 
 The hypothesis tests use:
 
-Significance level: α = 0.20
-
-Test 1 compares two selected ocean_proximity groups. The default comparison is:
-
-<1H OCEAN vs INLAND
-
-Test 2 uses One-Way ANOVA across the ocean-proximity categories.
+**α = 0.20**
 
 Decision display:
 
-🔴 Reject H₀
+- 🔴 **Reject H₀**
+- 🟢 **Fail to Reject H₀**
 
-🟢 Fail to Reject H₀
+Very small p-values are displayed as **< 0.001** for easier interpretation.
 
-Very small p-values are displayed as < 0.001.
+> Note: The hypothesis-test significance level is α = 0.20. The live prediction model separately uses a 95% prediction interval.
 
-Note: the hypothesis-test α = 0.20 is separate from the 95% prediction interval used for live predictions.
+---
 
-🚀 How to Run
+## 📈 3. Multiple Linear Regression
 
-1. Create and activate a virtual environment
+An Ordinary Least Squares (OLS) regression model is used to estimate the median house value.
 
-python -m venv .venv
+### 🎯 Target Variable
 
-Windows:
+`median_house_value`
 
-.venv\Scripts\activate
+### 🔢 Predictor Variables
 
-2. Install dependencies
+The model uses the following predictors:
 
-pip install -r requirements.txt
+- `median_income`
+- `housing_median_age`
+- `total_rooms`
+- `total_bedrooms`
+- `population`
+- `households`
+- `latitude`
+- `longitude`
 
-3. Start the Streamlit app
+The regression model provides:
 
-streamlit run app.py
+- 📊 R²
+- 📐 Adjusted R²
+- 🔢 Regression coefficients
+- 🧪 Coefficient p-values
+- 📏 95% confidence intervals
+- 📋 Model observations and predictor information
 
-The dashboard will open in your browser.
+---
 
-🛠️ Technologies
+## 🏠 4. Live Property Prediction
 
-Python
+The Property Predictor allows users to enter housing characteristics and receive a real-time estimate of the median house value.
 
-Streamlit
+Users can enter:
 
-Pandas
+- 💰 Median Income
+- 🏚️ Housing Median Age
+- 🚪 Total Rooms
+- 🛏️ Total Bedrooms
+- 👥 Population
+- 🏘️ Households
+- 📍 Latitude
+- 📍 Longitude
 
-NumPy
+The dashboard then provides:
 
-SciPy
+**🏠 Estimated Median House Value**
 
-Statsmodels
+along with a:
 
-Plotly
+**📊 95% Prediction Interval**
 
-Matplotlib
+---
 
-🎓 Academic Project
+## 🔍 5. Model Diagnostics
 
-M.Sc. Data Science — Semester 1
-Statistical Modeling with Python
+The dashboard includes several diagnostic tools for evaluating the OLS model.
 
-CasaVista demonstrates exploratory analysis, hypothesis testing, multiple linear regression, prediction, and residual diagnostics in an interactive web dashboard.
+### 📉 Residuals vs Fitted Values
+
+Used to visually inspect the relationship between residuals and fitted values and identify possible patterns or unequal variance.
+
+### 📐 Q-Q Plot
+
+Used to examine whether the residuals approximately follow a normal distribution.
+
+### 🧪 Jarque-Bera Normality Test
+
+Used to statistically test the normality of the residuals.
+
+### 🔍 Variance Inflation Factor (VIF)
+
+Used to check for possible multicollinearity among the predictor variables.
+
+### 📋 OLS Coefficient Table
+
+Displays:
+
+- Coefficients
+- P-values
+- 95% confidence interval lower bound
+- 95% confidence interval upper bound
+
+---
+
+## 📌 Dataset
+
+**Dataset:** California Housing Prices
+
+The dataset contains information about housing characteristics and location in California.
+
+### Important Variables
+
+| Variable | Description |
+|---|---|
+| `median_house_value` | Median value of houses |
+| `median_income` | Median income of the area |
+| `housing_median_age` | Median age of houses |
+| `total_rooms` | Total number of rooms |
+| `total_bedrooms` | Total number of bedrooms |
+| `population` | Population of the area |
+| `households` | Number of households |
+| `latitude` | Geographic latitude |
+| `longitude` | Geographic longitude |
+| `ocean_proximity` | Location category relative to the ocean |
+
+### Target Variable
+
+`median_house_value`
+
+### Categorical Variable
+
+`ocean_proximity`
+
+---
+
+## 📊 Statistical Findings
+
+The hypothesis-testing analysis indicates statistically significant differences in house values for selected ocean-proximity group comparisons.
+
+The One-Way ANOVA is used to evaluate differences across multiple ocean-proximity categories.
+
+The OLS regression model explains a substantial portion of the variation in median house values using the selected housing and geographic predictors.
+
+Model diagnostics are included to evaluate residual behavior, normality, and multicollinearity.
+
+---
+
+## 📂 Project Structure
+
+```text
+CasaVista Housing Project/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+└── data/
+    └── housing.csv
