@@ -17,9 +17,13 @@ An interactive California Housing statistical modeling dashboard built with Pyth
 📂 Project Structure
 
 CasaVista Housing Project/
+
 ├── app.py
+
 ├── requirements.txt
+
 ├── README.md
+
 └── Data/
     └── housing.csv
 
