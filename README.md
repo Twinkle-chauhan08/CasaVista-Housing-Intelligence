@@ -1,5 +1,6 @@
 # 🏠 CasaVista Housing Intelligence
 
+🌐 **Live Demo:** https://casavista-housing-intelligence.streamlit.app/
 
 ## 📌 Project Overview
 
