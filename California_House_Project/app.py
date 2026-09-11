@@ -409,7 +409,7 @@ def format_pvalue(value):
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("Data/housing.csv")
+    return pd.read_csv("data/housing.csv")
 
 
 df = load_data()
